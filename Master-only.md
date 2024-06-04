@@ -7,7 +7,7 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: jenkins
+  name: tulshiramKIC
   namespace: webapps
 ```
 
@@ -71,7 +71,7 @@ roleRef:
 subjects:
 - namespace: webapps 
   kind: ServiceAccount
-  name: jenkins 
+  name: tulshiramKIC 
 ```
 
 ### Generate token using service account in the namespace
