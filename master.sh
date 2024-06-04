@@ -1,4 +1,5 @@
 sudo apt-get update
+sudo apt upgrade -y
 echo "##Setup Docker"
 sudo apt install docker.io -y
 sudo chmod 666 /var/run/docker.sock
