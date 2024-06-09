@@ -97,8 +97,9 @@ eksctl create nodegroup --cluster=K8S-CLUSTER \
 
 
 ### Creating Namespace
-
+```bash
  kubectl create namespace webapps
+```
 
 ### Creating Service Account
 
