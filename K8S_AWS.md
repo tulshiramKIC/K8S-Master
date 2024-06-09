@@ -95,6 +95,11 @@ eksctl create nodegroup --cluster=K8S-CLUSTER \
 
 ## Create Service Account, Role & Assign that role, And create a secret for Service Account and geenrate a Token
 
+
+### Creating Namespace
+
+ kubectl create namespace webapps
+
 ### Creating Service Account
 
 
@@ -102,7 +107,7 @@ eksctl create nodegroup --cluster=K8S-CLUSTER \
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: tulshiramKIC
+  name: tulshiram
   namespace: webapps
 ```
 
@@ -166,7 +171,7 @@ roleRef:
 subjects:
 - namespace: webapps 
   kind: ServiceAccount
-  name: tulshiramKIC 
+  name: tulshiram
 ```
 
 ### Generate token using service account in the namespace
@@ -179,9 +184,10 @@ metadata:
   name: mysecretname
   namespace: webapps
   annotations:
-    kubernetes.io/service-account.name: tulshiramKIC
+    kubernetes.io/service-account.name: tulshiram
  ```   
-
-
+```bash
+kubectl deescribe secret mysecretname -n webapps
+```
 
 [Create Token](https://kubernetes.io/docs/reference/access-authn-authz/service-accounts-admin/#:~:text=To%20create%20a%20non%2Dexpiring,with%20that%20generated%20token%20data.)
